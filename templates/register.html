@@ -1,0 +1,86 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+
+      <div class="card">
+        <div class="card-header">
+          Create Account
+        </div>
+
+        <div class="card-body">
+          <!-- JS handles submit -->
+          <form id="registerForm">
+
+            <div class="form-group mb-3">
+              <label>Username</label>
+              <input
+                type="text"
+                class="form-control"
+                name="username"
+                required
+              >
+            </div>
+
+            <div class="form-group mb-3">
+              <label>Email</label>
+              <input
+                type="email"
+                class="form-control"
+                name="email"
+                required
+              >
+            </div>
+
+            <div class="form-group mb-3">
+              <label>First name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="first_name"
+                required
+              >
+            </div>
+
+            <div class="form-group mb-3">
+              <label>Last name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="last_name"
+                required
+              >
+            </div>
+
+            <div class="form-group mb-4">
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                required
+              >
+            </div>
+
+            <button type="submit" class="btn btn-success w-100">
+              Register
+            </button>
+
+          </form>
+        </div>
+
+        <div class="card-footer text-muted text-center">
+          Already have an account?
+          <a href="/login">Login</a>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+{% endblock %}

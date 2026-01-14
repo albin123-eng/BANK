@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{% block title %}Bank{% endblock %}</title>
+  <link rel="stylesheet" href="/static/bootstrap.css">
+  <link rel="stylesheet" href="/static/base.css">
+</head>
+<body>
+
+
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container d-flex justify-content-between align-items-center">
+
+    <!-- Left: Brand -->
+    <span class="navbar-brand mb-0 h1">Bank</span>
+
+    <!-- Center: Logout -->
+    <div class="mx-auto">
+      <button id="logoutBtn" class="btn btn-outline-danger btn-sm" style="display:none">
+        Logout
+      </button>
+    </div>
+
+  </div>
+</nav>
+
+
+<div class="mt-4">
+  {% block content %}{% endblock %}
+</div>
+
+<div id="msg" style="display:none"></div>
+
+<script src="/static/jquery-slim.js"></script>
+<script src="/static/popper.js"></script>
+<script src="/static/bootstrap.js"></script>
+<script src="/static/base.js"></script>
+
+
+
+
+<script>
+  if (localStorage.getItem("access_token")) {
+    document.getElementById("logoutBtn").style.display = "inline-block";
+  }
+</script>
+
+
+</body>
+</html>

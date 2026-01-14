@@ -1,0 +1,71 @@
+{% extends "layout.html" %}
+
+{% block title %}Withdraw{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+
+      <div class="card mb-3">
+        <div class="card-header">
+          My Account
+        </div>
+        <div class="card-body">
+          <p class="mb-1"><strong>Account ID:</strong> <span id="account_id">—</span></p>
+          <p class="mb-3"><strong>Balance:</strong> £<span id="balance">—</span></p>
+
+          <button type="button" class="btn btn-outline-primary btn-sm" onclick="loadMyAccount()">
+            Refresh
+          </button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          Withdraw Money
+        </div>
+
+        <div class="card-body">
+          <form id="withdrawForm">
+            <div class="form-group mb-3">
+              <label>Amount (£)</label>
+              <input
+                type="number"
+                class="form-control"
+                name="amount"
+                min="1"
+                step="1"
+                required
+              >
+              <small class="form-text text-muted">
+                You can only withdraw up to your current balance.
+              </small>
+            </div>
+
+            <button type="submit" class="btn btn-warning w-100">
+              Withdraw
+            </button>
+          </form>
+        </div>
+
+        <div class="card-footer text-muted text-center">
+          <a class="btn btn-outline-secondary" href="/account">Back to Account</a>
+          <a href="/deposit">Deposit</a> ·
+          <a href="/transfer">Transfer</a> ·
+          <a href="/transactions">Transactions</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (localStorage.getItem("access_token")) {
+      loadMyAccount();
+    }
+  });
+</script>
+{% endblock %}

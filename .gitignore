@@ -1,0 +1,44 @@
+# ===== Python / Virtual env =====
+.venv/
+venv/
+ENV/
+env/
+__pycache__/
+*.py[cod]
+*$py.class
+
+# ===== Pytest / coverage =====
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# ===== Logs =====
+*.log
+
+# ===== Databases / local data =====
+test.db
+*.sqlite3
+*.db-journal
+
+# ===== Secrets / env =====
+.env
+.env.*
+*.pem
+*.key
+
+# ===== OS / editor =====
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# ===== Build / distribution =====
+build/
+dist/
+*.egg-info/
+
+# ===== Node (if you ever add it) =====
+node_modules/
+

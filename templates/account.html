@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+{% block title %}Account{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h2 class="mb-3">My Account</h2>
+
+  <div class="card mb-3">
+    <div class="card-body">
+      <p><strong>Account ID:</strong> <span id="account_id">—</span></p>
+      <p><strong>Balance:</strong> £<span id="balance">—</span></p>
+      <button class="btn btn-outline-primary btn-sm" onclick="loadMyAccount()">Refresh</button>
+    </div>
+  </div>
+
+  <div class="d-flex gap-2">
+    <a class="btn btn-success" href="/deposit">Deposit</a>
+    <a class="btn btn-warning" href="/withdraw">Withdraw</a>
+    <a class="btn btn-primary" href="/transfer">Transfer</a>
+    <a class="btn btn-secondary" href="/transactions">Transactions</a>
+  </div>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    if (!localStorage.getItem("access_token")) {
+      window.location.href = "/login";
+      return;
+    }
+    loadMyAccount();
+  });
+</script>
+<script>
+  if (localStorage.getItem("access_token")) {
+    document.getElementById("logoutBtn").style.display = "inline-block";
+  }
+</script>
+
+{% endblock %}
