@@ -8,22 +8,18 @@ from .Auth import get_current_user
 
 router = APIRouter(prefix="/transfer", tags=["Transfer"])
 
-# ----------- DB -------
-
-
-# --------------Request model ------
 class TransferRequest(BaseModel):
     to_account_id: int = Field(..., gt=0)
     amount: int = Field(..., gt=0)
 
-# ---------------- Helper -----------
+
 def get_my_account(db: Session, user_id: int) -> Account:
     account = db.query(Account).filter(Account.user_id == user_id).first()
     if not account:
         raise HTTPException(status_code=404, detail="Account not found")
     return account
 
-# ------------- Transfer ----------
+
 @router.post("")
 def transfer_money(
     req: TransferRequest,

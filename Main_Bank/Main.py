@@ -20,35 +20,66 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/")
 def home(request: Request):
-    return templates.TemplateResponse("home.html", {"request": request})
-
+    return templates.TemplateResponse(
+    request=request,
+    name="home.html",
+    context={}
+)
 @app.get("/login")
 def login_page(request: Request):
-    return templates.TemplateResponse("login.html", {"request": request})
+    return templates.TemplateResponse(
+        request=request,
+        name="login.html",
+        context={}
+    )
 
 @app.get("/register")
 def register_page(request: Request):
-    return templates.TemplateResponse("register.html", {"request": request})
+    return templates.TemplateResponse(
+        request=request,
+        name="register.html",
+        context={}
+    )
 
 @app.get("/deposit")
 def deposit_page(request: Request):
-    return templates.TemplateResponse("deposit.html", {"request": request})
+    return templates.TemplateResponse(
+        request=request,
+        name="deposit.html",
+        context={}
+    )
 
 @app.get("/withdraw")
 def withdraw_page(request: Request):
-    return templates.TemplateResponse("withdraw.html", {"request": request})
+    return templates.TemplateResponse(
+        request=request,
+        name="withdraw.html",
+        context={}
+    )
 
 @app.get("/transfer")
 def transfer_page(request: Request):
-    return templates.TemplateResponse("transfer.html", {"request": request})
+    return templates.TemplateResponse(
+        request=request,
+        name="transfer.html",
+        context={}
+    )
 
 @app.get("/transactions")
 def transactions_page(request: Request):
-    return templates.TemplateResponse("transactions.html", {"request": request})
+    return templates.TemplateResponse(
+        request=request,
+        name="transactions.html",
+        context={}
+    )
 
 @app.get("/account", response_class=HTMLResponse)
 def account_page(request: Request):
-    return templates.TemplateResponse("account.html", {"request": request})
+    return templates.TemplateResponse(
+        request=request,
+        name="account.html",
+        context={}
+    )
 app.include_router(Auth.router)
 app.include_router(accounts.router)
 app.include_router(transfers.router)
